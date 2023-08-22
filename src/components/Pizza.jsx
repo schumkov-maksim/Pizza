@@ -1,31 +1,31 @@
 import { Alert, Box, Button, Card, CardActionArea, CardContent, CardMedia, FormControlLabel, Grid, Radio, RadioGroup, Snackbar, Typography } from '@mui/material'
 import React, { useState } from 'react'
 
-function Pizza({name,url, priceGross, priceKlein, text, setBasketList, basketList }) {
+function Pizza({name,url, priceGross, priceKlein, text, setBasketList, basketList, addItem}) {
 
   const [isOpen,setIsOpen]= useState(false)
   const [price, setPrice] = useState(priceKlein);
  
 
-  function addPizza(name,url){   
-  let id=basketList.length; 
-  let a =[...basketList]
-  const obj ={id: id, name:name, url:url, price:price, anzahl: 1}
-  const isDrin = basketList.findIndex((item) => item.name === name && item.price===price);
-  if(isDrin>=0){
+//   function addPizza(name,url){   
+//   let id=basketList.length; 
+//   let a =[...basketList]
+//   const obj ={id: id, name:name, url:url, price:price, anzahl: 1}
+//   const isDrin = basketList.findIndex((item) => item.name === name && item.price===price);
+//   if(isDrin>=0){
    
-    a[isDrin].anzahl+=1;
-    setBasketList(a)
-  }
- else{
-  const newArr= [...basketList, obj]
-  id=new Date();
-  setBasketList(newArr);
-  console.log(newArr.length + " iSDrin" + newArr[0].name);
+//     a[isDrin].anzahl+=1;
+//     setBasketList(a)
+//   }
+//  else{
+//   const newArr= [...basketList, obj]
+//   id=new Date();
+//   setBasketList(newArr);
+//   console.log(newArr.length + " iSDrin" + newArr[0].name);
  
- }
- setIsOpen(true);
-}
+//  }
+//  setIsOpen(true);
+// }
 
 
   return (
@@ -58,7 +58,7 @@ function Pizza({name,url, priceGross, priceKlein, text, setBasketList, basketLis
       </RadioGroup>
       </Box>
       <Box>
-      <Button variant='contained' onClick={()=>addPizza(name, url)}>Bestellen</Button>
+      <Button variant='contained' onClick={()=>addItem(name, url,price)}>Bestellen</Button>
       </Box>
       </Box>
       </CardContent>  
@@ -66,7 +66,7 @@ function Pizza({name,url, priceGross, priceKlein, text, setBasketList, basketLis
       <Snackbar open={isOpen} autoHideDuration={2000} onClose={()=>setIsOpen(false)}>
       <Alert  onClose={()=>setIsOpen(false)} severity="success" sx={{ width: '100%' }}>
           {name} wurde hinzugefügt
-    </Alert>
+      </Alert>
       </Snackbar>
     </Card>   
     </Grid>

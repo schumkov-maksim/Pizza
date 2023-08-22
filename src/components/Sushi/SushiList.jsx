@@ -1,8 +1,11 @@
 import React from 'react'
-
-function SushiList() {
+import sushi from '../../sushi'
+import SushiItem from './SushiItem'
+function SushiList({basketList,setBasketList, addItem}) {
   return (
-    <div>SushiList</div>
+    <>
+    {sushi.map(sushi => <SushiItem  {...sushi} key={sushi.id} basketList={basketList} setBasketList={setBasketList} addItem={addItem}/>)}
+    </>
   )
 }
 

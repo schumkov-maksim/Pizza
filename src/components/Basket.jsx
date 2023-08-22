@@ -23,7 +23,7 @@ function deleteItem(id, name){
               <Grid width={250}>
           <Stack spacing={{ xs: 1, sm: 2 }} direction="row" justifyContent={"space-between"} mt={5}>
            <Typography variant='h6'>Liste</Typography>     
-           <Close onClick={()=>isSetsDrawerOpen(false)}/>
+           <Close  style={{cursor:"pointer"}} onClick={()=>isSetsDrawerOpen(false)}/>
            </Stack>
             { basketList.map((item)=> item.anzahl>0? 
             <Box sx={{ display: 'flex', m:3, justifyContent:"space-around"}}>           
