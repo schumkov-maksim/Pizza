@@ -1,0 +1,17 @@
+.modal{
+position: absolute;
+top: 50%;
+left: 35%;
+transform: 'translate(-50%, -50%)';
+width: 400;
+height: 500;
+background-color: bisque;
+/* border: 2px solid #000; */
+box-shadow: 24;
+z-index: 5;
+padding: 20px;
+border-radius: 20px;
+}
+.modal input{
+    padding: 20px;
+}
